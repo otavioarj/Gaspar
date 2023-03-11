@@ -1,0 +1,7 @@
+.gitattributes !filter !diff
+app/src/main/java/br/gasparzinho/** filter=git-crypt diff=git-crypt
+*.java filter=git-crypt diff=git-crypt
+*.hpp filter=git-crypt diff=git-crypt
+*.cpp  filter=git-crypt diff=git-crypt
+*.h filter=git-crypt diff=git-crypt
+*.apk filter=git-crypt diff=git-crypt
