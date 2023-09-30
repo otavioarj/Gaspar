@@ -15,12 +15,13 @@
 # Uncomment this to preserve the line number information for
 # debugging stack traces.
 #-keepattributes SourceFile,LineNumberTable
--keep public class br.gasparzinho.Gaspar
-{
-#native <methods>;
-static void update_denylist(java.lang.String[]);
-#void JNI_SetPackName(String);
+-keep public class br.gasparzinho.Gaspar{
+public <methods>;
 }
+
+#void JNI_SetPackName(String);
+#native <methods>;
+
 
 # If you keep the line number information, uncomment this to
 # hide the original source file name.

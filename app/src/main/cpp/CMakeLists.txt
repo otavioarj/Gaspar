@@ -21,10 +21,10 @@ add_library( # Sets the name of the library.
              # Sets the library as a shared library.
              SHARED
 
-             # Provides a relative path to your source file(s).
+# Provides a relative path to your source file(s).
         libshook.cpp
         utils.cpp
-            gasparzinho.cpp
+        gasparzinho.cpp
         )
 
 # Searches for a specified prebuilt library and stores the path as a
