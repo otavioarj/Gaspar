@@ -16,7 +16,7 @@
 # debugging stack traces.
 #-keepattributes SourceFile,LineNumberTable
 -keep public class br.gasparzinho.Gaspar{
-public <methods>;
+public *;
 }
 
 #void JNI_SetPackName(String);
