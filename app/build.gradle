@@ -4,16 +4,12 @@ plugins {
 }
 
 android {
-    signingConfigs {
-        run {
-        }
-    }
     namespace 'br.gasparzinho'
     compileSdk 33
 
     defaultConfig {
         applicationId 'br.gasparzinho'
-        minSdk 26
+        minSdk 28
         targetSdk 33
         versionCode 108
         versionName '0.8'
@@ -26,7 +22,7 @@ android {
         ndk {
             // Specifies the ABI configurations of your native
             // libraries Gradle should build and package with your app.
-            abiFilters 'arm64-v8a','armeabi-v7a' //,'x86', 'x86_64', 'armeabi',
+            abiFilters 'arm64-v8a' //,'armeabi-v7a' //,'x86', 'x86_64', 'armeabi',
         }
 
     }
@@ -49,7 +45,7 @@ android {
     externalNativeBuild {
         cmake {
             path file('src/main/cpp/CMakeLists.txt')
-            version '3.18.1'
+            version '3.22.1'
         }
     }
     packagingOptions {
@@ -60,7 +56,7 @@ android {
     dependenciesInfo {
         includeInApk false
     }
-    ndkVersion '26.0.10792818'
+    ndkVersion '26.1.10909125'
     buildToolsVersion '34.0.0'
     dynamicFeatures = []
 //buildToolsVersion '30.0.3'
