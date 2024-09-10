@@ -65,6 +65,8 @@ android {
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.9.0'
+    implementation 'net.bytebuddy:byte-buddy:1.12.3'
+    implementation 'org.ow2.asm:asm:9.4'
     //implementation 'org.reflections:reflections:0.10.2'
     compileOnly 'de.robv.android.xposed:api:82'
     compileOnly 'de.robv.android.xposed:api:82:sources'
