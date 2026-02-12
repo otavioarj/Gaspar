@@ -71,6 +71,7 @@ public class Extras extends Gaspar{
         }
     }
 
+
     protected static void doStackTraces(Object app ) throws Exception {
         XC_LoadPackage.LoadPackageParam lpparam = (XC_LoadPackage.LoadPackageParam) app;
         try{
@@ -89,6 +90,25 @@ public class Extras extends Gaspar{
                     param.setResult(out_trace);
                    // printMe(lpparam.packageName, "StackTrace");
                    // super.afterHookedMethod(param);
+                }
+            });
+
+            XposedHelpers.findAndHookMethod("java.lang.Throwable", lpparam.classLoader, "setStackTrace",StackTraceElement[].class, new XC_MethodHook() {
+                @Override
+                protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
+                    StackTraceElement[] s_trace = (StackTraceElement[]) param.args[0];
+                    Throwable throwable = (Throwable) param.thisObject;
+                    printMe(lpparam.packageName, "StackTrace Manipulation:");
+                    for (StackTraceElement element : s_trace) {
+                        printMe(element.toString());
+                    }
+                    printMe(lpparam.packageName, "StackTrace real:");
+                    StackTraceElement[] stackTrace = throwable.getStackTrace();
+                    for (StackTraceElement element : stackTrace) {
+                         printMe(lpparam.packageName, element.toString());
+                    }
+                    // super.afterHookedMethod(param);
+                    return;
                 }
             });
         } catch (XposedHelpers.ClassNotFoundError | java.lang.NoSuchMethodError e) { printMe("!Err: ",lpparam.packageName, e.getLocalizedMessage()); }
